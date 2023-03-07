@@ -3,19 +3,48 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href = "style.css">
+        <link rel="icon" href="png/snowandthunder.png">
+        
         <title>
             Weather
         </title>
     </head>
     <body>
-        <h1 id = "overskrift">Å være eller ikke være</h1>
 
-            <nav>
-                <ul>
-                    <li>Molde</li>
-                    <li>Kristiansund</li>
-                    <li>Ålesund</li>
+            <h1 id = "overskrift">Å være eller ikke være</h1> 
+            <button onclick = "change(2)" id = "knappCelsius" type = "button">Celsius</button> 
+            <button onclick = "change(3)" id = "knappFarenheit" type = "button">Farenheit</button> 
+            <button onclick = "change(1)" id = "knappKelvin" type = "button">Kelvin</button> 
+        
+
+            <nav> 
+                <ul id="MainList">
+                    <li> 
+                        <ul id="Molde"> 
+                            <li>Molde</li>
+                            <li><img id = "MoldeBilde"></li>
+                            <li><div id = "MoldeTemp"></div></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul id="Ålesund"> 
+                            <li>Ålesund</li>
+                            <li><img id = "AalesundBilde"></li>
+                            <li><div id = "AalesundTemp"></div></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul id="Kristiansund"> 
+                            <li>Kristiansund</li>
+                            <li><img id ="KristiansundBilde"></li>
+                            <li><div id = "KristiansundTemp"></div></li>
+                        </ul>
+                    </li>
+                    
                 </ul>
             </nav>
+
+            <script src = "script.js"></script>
+
     </body>
 </html>

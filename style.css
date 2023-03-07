@@ -1,5 +1,4 @@
 body{
-    background: rgb(12,191,99);
     background: linear-gradient(180deg, rgba(12,191,99,1) 0%, rgba(9,232,158,1) 31%, rgba(10,225,204,1) 69%, rgba(11,157,186,1) 100%);
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
@@ -8,15 +7,40 @@ body{
 
 
 #overskrift{
-    font-size: 70px;
+    font-size: 55px;
+}
+
+#MainList{
+   font-size: 40px;
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   padding: 0 0px;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+#knapp{
+    position: fixed;
 }
 
 ul{
-   font-size: 40px;
-   list-style: none;
-   display: grid;
-   grid-template-columns: 1fr 1fr 1fr;
-   column-gap: 10%;
-   padding: 40 0px;
-   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    list-style: none;
 }
+
+button{
+    background-color: white; 
+    border: 2px solid black;
+    color: black;
+    border-radius: 12px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+  button:hover {
+    background-color: black;
+    border: 2px solid white;
+    color: white;
+    transform: rotate(12deg);
+  }
