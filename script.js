@@ -1,81 +1,65 @@
+var customUrl
+var enhet = {}
+var TempCustom = {}
 
-const urlAalesund = "https://api.met.no/weatherapi/nowcast/2.0/complete?lat=62.472229&lon=6.149482"
-const urlKristiansund = "https://api.met.no/weatherapi/nowcast/2.0/complete?lat=63.11045&lon=7.72795"
-const urlMolde = "https://api.met.no/weatherapi/nowcast/2.0/complete?lat=62.7087&lon=6.55346"
 
-var enhet = " °C"
+function createUrl(choiceLon, choiceLat, choiceCity, tempFormatNr){
+    var longitude = choiceLon;
+    var latitude = choiceLat
+    var city = choiceCity
+    var useTemp = tempFormatNr
+    console.log("tall "+ useTemp)
 
-function change(temperaturVariabel) 
-{
-    useTemp = temperaturVariabel;
-    update_tall(useTemp);
+    console.log("Lon: " + longitude + ", Lat: " + latitude +", City: " +city)
+   
+
+    customUrl = "https://api.met.no/weatherapi/nowcast/2.0/complete?lat=" + latitude + "&lon=" + longitude
+    createCustomUrl(customUrl, city)
 }
 
-function update_tall(useTemp) {
+function createCustomUrl(customUrl, city){
+   customUrl = customUrl
 
-    fetch(urlMolde)
+    console.log("hei " + customUrl)
+    fetch(customUrl)
         .then(response => {
             let data = response.json().then(data => {
                 console.log(data);
-                if(useTemp == 1){
-                    enhet = " K"
-                    TempMolde= parseFloat(data.properties.timeseries[0].data.instant.details.air_temperature)+273.15;
-                }else if(useTemp == 3){
-                    TempMolde= parseFloat((data.properties.timeseries[0].data.instant.details.air_temperature)*9/5)+32;
-                    enhet = " °F"
+                if(city=="Molde"){
+                    MoldeTemp.innerHTML = TempCustom.toLocaleString('en-US') + enhet
+                    BildeMolde = String(data.properties.timeseries[0].data.next_1_hours.summary.symbol_code);
+                    document.getElementById("MoldeBilde").src="png/" + BildeMolde + ".png";
+                } else if(city=="Ålesund"){
+                    AalesundTemp.innerHTML = TempCustom.toLocaleString('en-US') + enhet
+                    BildeAalesund = String(data.properties.timeseries[0].data.next_1_hours.summary.symbol_code);
+                    document.getElementById("AalesundBilde").src="png/" + BildeAalesund + ".png";
+                } else if(city == "Kristiansund"){
+                    KristiansundTemp.innerHTML = TempCustom.toLocaleString('en-US') + enhet
+                    BildeKristiansund = String(data.properties.timeseries[0].data.next_1_hours.summary.symbol_code);
+                    document.getElementById("KristiansundBilde").src="png/" + BildeKristiansund + ".png";
                 } else{
-                    TempMolde= parseFloat(data.properties.timeseries[0].data.instant.details.air_temperature)
-                    enhet = " °C"
+                    CustomTemp.innerHTML = TempCustom.toLocaleString('en-US') + enhet
+                    customCityName.innerText = city.toLocaleString('en-US')
+                    BildeCustom = String(data.properties.timeseries[0].data.next_1_hours.summary.symbol_code);
+                    document.getElementById("CustomBilde").src="png/" + BildeCustom + ".png"; 
                 }
-                MoldeTemp.innerHTML = TempMolde.toLocaleString('en-US') + enhet
-
-                BildeMolde = String(data.properties.timeseries[0].data.next_1_hours.summary.symbol_code);
-                document.getElementById("MoldeBilde").src="png/" + BildeMolde + ".png";
+                
             })
-        });
-
-        fetch(urlAalesund)
-        .then(response => {
-            let data = response.json().then(data => {
-                console.log(data);
-                if(useTemp == 1){
-                    enhet = " K"
-                    TempAalesund= parseFloat(data.properties.timeseries[0].data.instant.details.air_temperature)+273.15;
-                }else if(useTemp == 3){
-                    TempAalesund= parseFloat((data.properties.timeseries[0].data.instant.details.air_temperature)*9/5)+32;
-                    enhet = " °F"
-                } else{
-                    TempAalesund= parseFloat(data.properties.timeseries[0].data.instant.details.air_temperature)
-                    enhet = " °C"
-                }
-                AalesundTemp.innerHTML = TempAalesund.toLocaleString('en-US') + enhet
-
-                BildeAalesund = String(data.properties.timeseries[0].data.next_1_hours.summary.symbol_code);
-                document.getElementById("AalesundBilde").src="png/" + BildeAalesund + ".png";
-            })
-        });
-
-        fetch(urlKristiansund)
-        .then(response => {
-            let data = response.json().then(data => {
-                console.log(data);
-                if(useTemp == 1){
-                    enhet = " K"
-                    TempKristiansund= parseFloat(data.properties.timeseries[0].data.instant.details.air_temperature)+273.15;
-                }else if(useTemp == 3){
-                    TempKristiansund= parseFloat((data.properties.timeseries[0].data.instant.details.air_temperature)*9/5)+32;
-                    enhet = " °F"
-                } else{
-                    TempKristiansund= parseFloat(data.properties.timeseries[0].data.instant.details.air_temperature)
-                    enhet = " °C"
-                }
-                KristiansundTemp.innerHTML = TempKristiansund.toLocaleString('en-US') + enhet
-
-                BildeKristiansund = String(data.properties.timeseries[0].data.next_1_hours.summary.symbol_code);
-                document.getElementById("KristiansundBilde").src="png/" + BildeKristiansund + ".png";
-            })
-        });
+        }); 
 }
-change();
-update_tall();
+
+function tempFormat(useTemp){
+    if(useTemp == 1){
+        enhet = " K"
+        TempCustom= parseFloat(data.properties.timeseries[0].data.instant.details.air_temperature)+273.15;
+    }else if(useTemp == 3){
+        TempCustom= parseFloat((data.properties.timeseries[0].data.instant.details.air_temperature)*9/5)+32;
+        enhet = " °F"
+    } else{
+        TempCustom= parseFloat(data.properties.timeseries[0].data.instant.details.air_temperature)
+        enhet = " °C"
+    }
+
+}
+
 

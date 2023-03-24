@@ -9,12 +9,35 @@
             Weather
         </title>
     </head>
-    <body>
+    <body onload="createUrl(7.72795, 63.11045, 'Kristiansund',2); createUrl(6.1549, 62.4723, 'Ålesund', 2); createUrl(7.1833, 62.733, 'Molde', 2)" >
 
             <h1 id = "overskrift">Å været eller ikke været</h1> 
-            <button onclick = "change(2)" id = "knappCelsius" type = "button">Celsius</button> 
-            <button onclick = "change(3)" id = "knappFarenheit" type = "button">Farenheit</button> 
-            <button onclick = "change(1)" id = "knappKelvin" type = "button">Kelvin</button> 
+            
+
+            <div class="dropdown">
+                <button class="dropbtn">Temperatur Format</button>
+                <div class="dropdown-content">
+                    <a onclick = "tempFormat(2)">Celsius</a> 
+                    <a onclick = "tempFormat(3)">Farenheit</a> 
+                    <a onclick = "tempFormat(1)">Kelvin</a> 
+                </div>
+              </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">Andre byer</button>
+                <div class="dropdown-content">
+                  <a onclick="createUrl(10.7528, 59.9111, 'Oslo')">Oslo</a>
+                  <a onclick="createUrl(10.4000, 63.4400, 'Trondheim')" >Trondheim</a>
+                  <a onclick="createUrl(5.3233,60.3925, 'Bergen')">Bergen</a>
+                  <a onclick="createUrl(18.9637,69.6546, 'Tromsø')">Tromsø</a>
+                  <a onclick="createUrl(10.2045,59.7439, 'Drammen')">Drammen</a>
+                  <a onclick="createUrl(7.9956,58.1467, 'Kristiansand')">Kristiansand</a>
+                  <a onclick="createUrl(10.2197,59.1288, 'Sandefjord')">Sandefjord</a>
+                  <a onclick="createUrl(5.7333,58.9701, 'Stavanger')">Stavanger</a>
+                  <a onclick="createUrl(14.3833,58.9701, 'Bodø')">Bodø</a>
+
+                </div>
+              </div>
         
 
             <nav> 
@@ -26,18 +49,25 @@
                             <li><div id = "MoldeTemp"></div></li>
                         </ul>
                     </li>
-                    <li>
+                    <li onload="">
                         <ul id="Ålesund"> 
                             <li>Ålesund</li>
                             <li><img id = "AalesundBilde"></li>
                             <li><div id = "AalesundTemp"></div></li>
                         </ul>
                     </li>
-                    <li>
+                    <li >
                         <ul id="Kristiansund"> 
                             <li>Kristiansund</li>
                             <li><img id ="KristiansundBilde"></li>
                             <li><div id = "KristiansundTemp"></div></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul id="customCity"> 
+                            <li id="customCityName"></li>
+                            <li><img id ="CustomBilde"></li>
+                            <li><div id = "CustomTemp"></div></li>
                         </ul>
                     </li>
                     
