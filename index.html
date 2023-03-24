@@ -9,22 +9,12 @@
             Weather
         </title>
     </head>
-    <body onload="tempHovedbyer()">
+    <body>
 
             <h1 id = "overskrift">Å været eller ikke været</h1> 
-            
 
             <div class="dropdown">
-                <button class="dropbtn">Temperatur Format</button>
-                <div class="dropdown-content">
-                    <a onclick = "tempHovedbyer(2)">Celsius</a> 
-                    <a onclick = "tempHovedbyer(3)">Farenheit</a> 
-                    <a onclick = "tempHovedbyer(1)">Kelvin</a> 
-                </div>
-              </div>
-
-            <div class="dropdown">
-                <button class="dropbtn">Andre byer</button>
+                <button class="dropbtn">Velg by</button>
                 <div class="dropdown-content">
                   <a onclick="createUrl(10.7528, 59.9111, 'Oslo')">Oslo</a>
                   <a onclick="createUrl(10.4000, 63.4400, 'Trondheim')" >Trondheim</a>
@@ -43,28 +33,32 @@
             <nav> 
                 <ul id="MainList">
                     <li> 
-                        <ul id="Molde"> 
-                            <li>Molde</li>
-                            <li><img id = "MoldeBilde"></li>
-                            <li><div id = "MoldeTemp"></div></li>
+                        <ul id="customCity4"> 
+                            <li><button onclick="coolNr(4)" id="velgByKnapp4"><a  href="index.html?by4=">Velg Plassering</a></button></li>
+                            <li id="customCityName4"></li>
+                            <li><img id = "CustomBilde4"></li>
+                            <li><div id = "CustomTemp4"></div></li>
                         </ul>
                     </li>
-                    <li onload="">
-                        <ul id="Ålesund"> 
-                            <li>Ålesund</li>
-                            <li><img id = "AalesundBilde"></li>
-                            <li><div id = "AalesundTemp"></div></li>
+                    <li>
+                        <ul id="customCity3"> 
+                            <li><button id="velgByKnapp3"><a  href="index.html?by3=">Velg Plassering</a></button></li>
+                            <li id="customCityName3"></li>
+                            <li><img id = "CustomBilde3"></li>
+                            <li><div id = "CustomTemp3"></div></li>
                         </ul>
                     </li>
                     <li >
-                        <ul id="Kristiansund"> 
-                            <li>Kristiansund</li>
-                            <li><img id ="KristiansundBilde"></li>
-                            <li><div id = "KristiansundTemp"></div></li>
+                        <ul id="customCity2"> 
+                            <li><button id="velgByKnapp2"><a  href="index.html?by2=">Velg Plassering</a></button></li>
+                            <li id="customCityName2"></li>
+                            <li><img id ="CustomBilde2"></li>
+                            <li><div id = "CustomTemp2"></div></li>
                         </ul>
                     </li>
                     <li>
                         <ul id="customCity"> 
+                            <li><button id="velgByKnapp"><a  href="index.html?by1=">Velg Plassering</a></button></li>
                             <li id="customCityName"></li>
                             <li><img id ="CustomBilde"></li>
                             <li><div id = "CustomTemp"></div></li>
