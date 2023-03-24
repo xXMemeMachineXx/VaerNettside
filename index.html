@@ -9,7 +9,7 @@
             Weather
         </title>
     </head>
-    <body onload="createUrl(7.72795, 63.11045, 'Kristiansund',2); createUrl(6.1549, 62.4723, 'Ålesund', 2); createUrl(7.1833, 62.733, 'Molde', 2)" >
+    <body onload="tempHovedbyer()">
 
             <h1 id = "overskrift">Å været eller ikke været</h1> 
             
@@ -17,9 +17,9 @@
             <div class="dropdown">
                 <button class="dropbtn">Temperatur Format</button>
                 <div class="dropdown-content">
-                    <a onclick = "tempFormat(2)">Celsius</a> 
-                    <a onclick = "tempFormat(3)">Farenheit</a> 
-                    <a onclick = "tempFormat(1)">Kelvin</a> 
+                    <a onclick = "tempHovedbyer(2)">Celsius</a> 
+                    <a onclick = "tempHovedbyer(3)">Farenheit</a> 
+                    <a onclick = "tempHovedbyer(1)">Kelvin</a> 
                 </div>
               </div>
 
