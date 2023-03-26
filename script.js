@@ -1,16 +1,16 @@
 var customUrl
+var nr = {}
 
 function coolNr(customNr){
-    customNr=customNr
-    return(customNr)
+    nr.customNr=customNr
+    console.log(customNr)
 }
-
 
 function createUrl(choiceLon, choiceLat, choiceCity){
     var longitude = choiceLon;
     var latitude = choiceLat
     var city = choiceCity
-    customNr=coolNr(customNr)
+    customNr=nr.customNr
     console.log(customNr)
     console.log("by " + city)
     console.log("Lon: " + longitude + ", Lat: " + latitude +", City: " +city)
