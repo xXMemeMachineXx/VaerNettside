@@ -16,6 +16,7 @@ function createUrl(choiceLon, choiceLat, choiceCity){
     console.log("Lon: " + longitude + ", Lat: " + latitude +", City: " +city)
 
     customUrl = "https://api.met.no/weatherapi/nowcast/2.0/complete?lat=" + latitude + "&lon=" + longitude
+    console.log(customUrl)
     createCustomUrl(customUrl, city, customNr)  
 }
 
